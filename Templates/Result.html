@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generated Blueprint</title>
+</head>
+<body>
+  <h1>Generated Startup Blueprint</h1>
+  <p><strong>Startup Idea:</strong> {{ idea }}</p>
+  <br>
+  <h2>Result:</h2>
+  {% if result.get("AI Blueprint") %}
+    <pre>{{ result["AI Blueprint"] }}</pre>
+  {% else %}
+    <ul>
+      {% for key, value in result.items() %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <br>
+  <a href="/">Go Back</a>
+</body>
+</html>
