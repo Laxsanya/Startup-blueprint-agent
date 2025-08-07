@@ -6,25 +6,27 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/generate', methods=['POST'])  # ← ✅ FIXED: Added methods=['POST']
+@app.route('/generate', methods=['POST'])
 def generate():
-    idea = request.form['idea']
+    idea = request.form['idea'].strip()
 
+    # 🧠 Generate a semi-dynamic blueprint using formatting logic
     blueprint = {
-        "summary": f"This startup aims to solve problems in the domain of '{idea}'.",
-        "tech_stack": "Python, Flask, MongoDB, React",
-        "audience": "Young entrepreneurs, tech enthusiasts, startups",
-        "monetization": "Freemium model, ads, premium features",
+        "summary": f"This startup focuses on solving problems related to '{idea}', offering innovative, user-centric digital solutions.",
+        "tech_stack": f"A modern stack suited for '{idea}' including Python (Flask), JavaScript (React), MongoDB, and RESTful APIs.",
+        "audience": f"Individuals, businesses, or communities affected by or involved in '{idea}' sector.",
+        "monetization": f"Revenue can be generated via subscriptions, freemium features, ads, or partnerships relevant to '{idea}'.",
         "launch_steps": [
-            "1. Research the market",
-            "2. Build MVP",
-            "3. Launch beta",
-            "4. Collect feedback",
-            "5. Scale"
+            f"1. Research the specific needs in '{idea}' space.",
+            f"2. Design a Minimum Viable Product tailored for '{idea}' users.",
+            f"3. Build a prototype with essential features for '{idea}'.",
+            f"4. Test with a small group of real users in '{idea}' area.",
+            f"5. Launch public beta and gather feedback.",
+            f"6. Iterate, scale, and expand based on response in '{idea}' domain."
         ]
     }
 
     return render_template('index.html', idea=idea, blueprint=blueprint)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run()
