@@ -1,87 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Startup Blueprint Generator</title>
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #f6f9fc, #cfe7f2);
-            color: #333;
             margin: 0;
             padding: 0;
+            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+            font-family: 'Segoe UI', sans-serif;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 60px auto;
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            padding: 40px 50px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
         }
 
         h1 {
             text-align: center;
-            color: #1a73e8;
             font-size: 32px;
+            color: #0f4c75;
+            margin-bottom: 30px;
         }
 
         form {
-            margin-top: 30px;
             text-align: center;
-        }
-
-        label {
-            font-size: 18px;
-            font-weight: 600;
         }
 
         input[type="text"] {
             width: 90%;
             padding: 14px;
-            margin-top: 10px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            border: 2px solid #cfd8dc;
             font-size: 16px;
-            box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
-        }
-
-        input[type="submit"] {
-            background-color: #1a73e8;
-            color: white;
-            padding: 12px 30px;
-            font-size: 16px;
-            border: none;
             border-radius: 10px;
-            cursor: pointer;
+            border: 2px solid #3282b8;
+            margin-bottom: 20px;
+            outline: none;
             transition: 0.3s ease;
         }
 
+        input[type="text"]:focus {
+            border-color: #0f4c75;
+            box-shadow: 0 0 10px rgba(15, 76, 117, 0.2);
+        }
+
+        input[type="submit"] {
+            background: #0f4c75;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
         input[type="submit"]:hover {
-            background-color: #155ab6;
+            background: #3282b8;
         }
 
         .blueprint {
-            margin-top: 50px;
+            margin-top: 40px;
             padding: 30px;
             background: #f1f9ff;
             border-radius: 12px;
-            border-left: 8px solid #1a73e8;
+            border-left: 6px solid #0f4c75;
+            animation: slideUp 0.8s ease-out;
         }
 
         .blueprint h2 {
-            color: #0b5394;
-            margin-bottom: 10px;
+            color: #0f4c75;
+            margin-bottom: 15px;
         }
 
         .blueprint p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 12px 0;
+            line-height: 1.7;
+            margin-bottom: 10px;
         }
 
         ul {
+            margin-top: 10px;
             padding-left: 20px;
         }
 
@@ -90,20 +92,28 @@
         }
 
         .footer {
-            margin-top: 40px;
             text-align: center;
-            color: #888;
+            margin-top: 40px;
+            color: #555;
             font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🚀 Startup Blueprint Generator</h1>
-
         <form method="POST" action="/generate">
-            <label>Enter your startup idea or domain:</label><br>
-            <input type="text" name="idea" placeholder="e.g., eco-friendly packaging" required><br>
+            <input type="text" name="idea" placeholder="Type your startup idea..." required><br>
             <input type="submit" value="Generate Blueprint">
         </form>
 
@@ -124,7 +134,7 @@
         {% endif %}
 
         <div class="footer">
-            <p>Made with 💡 for your IBM Edunet Capstone Project</p>
+            <p>✨ Made with passion for your Capstone Project</p>
         </div>
     </div>
 </body>
