@@ -7,24 +7,24 @@
     <h1>Startup Blueprint Generator</h1>
 
     <form method="POST" action="/generate">
-        <label>Enter your idea or domain:</label><br>
+        <label>Enter your startup idea or domain:</label><br>
         <input type="text" name="idea" required><br><br>
         <input type="submit" value="Generate Blueprint">
     </form>
 
     {% if blueprint %}
-        <hr>
-        <h2>Blueprint for: {{ idea }}</h2>
-        <p><strong>Summary:</strong> {{ blueprint.summary }}</p>
-        <p><strong>Tech Stack:</strong> {{ blueprint.tech_stack }}</p>
-        <p><strong>Target Audience:</strong> {{ blueprint.audience }}</p>
-        <p><strong>Monetization:</strong> {{ blueprint.monetization }}</p>
-        <p><strong>Launch Steps:</strong></p>
-        <ul>
-            {% for step in blueprint.launch_steps %}
-                <li>{{ step }}</li>
-            {% endfor %}
-        </ul>
+    <hr>
+    <h2>Blueprint for: {{ idea }}</h2>
+    <p><strong>Summary:</strong> {{ blueprint.summary }}</p>
+    <p><strong>Tech Stack:</strong> {{ blueprint.tech_stack }}</p>
+    <p><strong>Target Audience:</strong> {{ blueprint.audience }}</p>
+    <p><strong>Monetization:</strong> {{ blueprint.monetization }}</p>
+    <p><strong>Launch Steps:</strong></p>
+    <ul>
+        {% for step in blueprint.launch_steps %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
 </body>
 </html>
